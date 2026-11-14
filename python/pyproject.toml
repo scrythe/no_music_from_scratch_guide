@@ -1,0 +1,9 @@
+[project]
+name = "no-music"
+version = "0.1.0"
+description = "Comparing and maybe training the c implementation of no_music"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.4",
+]
