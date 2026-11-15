@@ -23,10 +23,11 @@ int main() {
       .ptr = malloc(audio_data_interleaved.len * sizeof(f32)),
       .len = audio_data_interleaved.len,
   };
-  u32 offset = audio_data_planar.len / 2;
+  u32 offset_right = audio_data_planar.len / 2;
   for (u32 i = 0; i < audio_data_planar.len / 2; i++) {
     audio_data_planar.ptr[i] = audio_data_interleaved.ptr[2 * i];
-    audio_data_planar.ptr[offset + i] = audio_data_interleaved.ptr[2 * i + 1];
+    audio_data_planar.ptr[offset_right + i] =
+        audio_data_interleaved.ptr[2 * i + 1];
   }
   fclose(audio_file);
   FILE *audio_output_file = fopen("audio.f32", "w");

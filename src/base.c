@@ -19,3 +19,14 @@ typedef double f64;
     type *ptr;                                                                 \
     u32 len;                                                                   \
   } slice(type)
+
+#ifdef BUILD_DEBUG
+#define assert(val)                                                            \
+  do {                                                                         \
+    if (!(val)) {                                                              \
+      __builtin_trap();                                                        \
+    }                                                                          \
+  } while (0)
+#else
+#define assert(val) (void)(val)
+#endif
