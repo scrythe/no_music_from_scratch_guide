@@ -30,3 +30,6 @@ typedef double f64;
 #else
 #define assert(val) (void)(val)
 #endif
+
+#define static_assert(cond, message)                                           \
+  typedef char concat(static_assert_, message)[(cond) ? 1 : -1]
