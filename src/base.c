@@ -10,6 +10,9 @@ typedef uint64_t u64;
 typedef float f32;
 typedef double f64;
 
+// typedef float _Complex c32;
+// typedef double _Complex c64;
+
 #define concat_(a, b) a##b
 #define concat(a, b) concat_(a, b)
 
@@ -19,6 +22,9 @@ typedef double f64;
     type *ptr;                                                                 \
     u32 len;                                                                   \
   } slice(type)
+
+#define malloc_slice(type, length)                                             \
+  {.ptr = malloc(sizeof(type) * (length)), .len = (length)}
 
 #ifdef BUILD_DEBUG
 #define assert(val)                                                            \
