@@ -13,6 +13,18 @@ typedef double f64;
 // typedef float _Complex c32;
 // typedef double _Complex c64;
 
+// #define U11_MAX ((2 << 10) - 1)
+
+typedef struct {
+  f32 real;
+  f32 im;
+} c32;
+
+typedef struct {
+  f64 real;
+  f64 im;
+} c64;
+
 #define concat_(a, b) a##b
 #define concat(a, b) concat_(a, b)
 
@@ -25,6 +37,9 @@ typedef double f64;
 
 #define malloc_slice(type, length)                                             \
   {.ptr = malloc(sizeof(type) * (length)), .len = (length)}
+
+#define calloc_slice(type, length)                                             \
+  {.ptr = calloc(sizeof(type), length), .len = (length)}
 
 #ifdef BUILD_DEBUG
 #define assert(val)                                                            \

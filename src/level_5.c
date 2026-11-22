@@ -1,25 +1,15 @@
 #include "base.c"
-#include "profile.c"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-typedef struct {
-  f32 real;
-  f32 im;
-} c32;
-
-typedef struct {
-  f64 real;
-  f64 im;
-} c64;
+#include <time.h>
 
 create_slice_type(f32);
 create_slice_type(f64);
 create_slice_type(c32);
 
 #define IS_MAIN
+#include "profile.c"
 #include "utility.c"
 
 slice(c32) fft(slice(c32) audio_frame_data) {
